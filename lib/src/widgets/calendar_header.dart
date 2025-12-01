@@ -21,6 +21,7 @@ class CalendarHeader extends StatelessWidget {
   final ValueChanged<CalendarFormat> onFormatButtonTap;
   final Map<CalendarFormat, String> availableCalendarFormats;
   final DayBuilder? headerTitleBuilder;
+  final Widget? suffixWidget;
 
   const CalendarHeader({
     super.key,
@@ -35,6 +36,7 @@ class CalendarHeader extends StatelessWidget {
     required this.onFormatButtonTap,
     required this.availableCalendarFormats,
     this.headerTitleBuilder,
+    this.suffixWidget,
   });
 
   @override
@@ -90,6 +92,7 @@ class CalendarHeader extends StatelessWidget {
               margin: headerStyle.rightChevronMargin,
               padding: headerStyle.rightChevronPadding,
             ),
+          if (suffixWidget != null) suffixWidget ?? const SizedBox(),
         ],
       ),
     );
